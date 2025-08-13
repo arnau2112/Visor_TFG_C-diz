@@ -13,29 +13,19 @@
   <link href="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css" rel="stylesheet" />
   
   <link rel="stylesheet" href="https://unpkg.com/leaflet-sidebar-v2/css/leaflet-sidebar.min.css" />
-     
-    <!-- Pantalla inicial -->
-
+    
+  <!-- Pantalla inicial -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet.control.window@1.0.3/src/L.Control.Window.css" />
-
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet-minimap/dist/Control.MiniMap.min.css" />
   
   <link rel="stylesheet" href="https://unpkg.com/leaflet-groupedlayercontrol@0.6.1/dist/leaflet.groupedlayercontrol.min.css" />
   
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
   
 
 
-  
-  
-
-	
-    
-
-
-  
-
+ 
   <style>
   
     body {
@@ -48,10 +38,10 @@
     }
 
     #map {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-}
+	  width: 100vw;
+	  height: 100vh;
+	  margin: 0;
+	}
 
     header img {
       height: 60px;
@@ -192,18 +182,19 @@
 		Leyenda
 		<span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
 	  </h1>
-	  <p>Representación visual de la capa de inundación (3 metros).</p>
-	  <img src="http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=3metros_inundacion&STYLE=estilo_3_metros"
-		   alt="Leyenda inundación 3m"
-		   style="border:1px solid #555; max-width: 100%; height: auto;" />
-	  <p>Representación visual de la capa de inundación (6 metros).</p>
-	  <img src="http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=6metros_inundacion&STYLE=estilo_6_metros"
-		   alt="Leyenda inundación 3m"
-		   style="border:1px solid #555; max-width: 100%; height: auto;" />
-	  <p>Representación visual de la capa de inundación (9 metros).</p>
-	  <img src="http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=9metros_inundacion&STYLE=estilo_9_metros"
-		   alt="Leyenda inundación 3m"
-		   style="border:1px solid #555; max-width: 100%; height: auto;" />
+	  
+	  <label for="selector-leyenda">Seleccione la layenda a mostrar: </label>
+		<select id="selector-leyenda">
+		  <option value="">--Haga una elección--</option>
+		  <option value="3m">Escenario1 (3 m)</option>
+		  <option value="6m">Escenario2 (6 m)</option>
+		  <option value="9m">Escenario3 (9 m)</option>
+		</select>
+		<div id="explicacion-leyenda" style="margin-top: 10px; font-weight: bold;"></div>
+		<p></p>
+	  
+	  
+	
 	</div>
 	
 	
@@ -306,7 +297,10 @@
         Ajustes
         <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
       </h1>
-      <p>Contenido de ajustes.</p>
+       <p><strong>Contenido de ajustes.</strong></p>
+	  <p>Autor del trabajo: Arnau Solà.</p>
+	  <p>Grado en Ingeniería en Geoinformación y Geomática</p>
+	  <p>Escola Politècnica Superior d'Edificació de Barcelona. EPSEB</p>
     </div>
   </div>
 </div>
@@ -343,9 +337,6 @@
 	</div>
 
 
-
-  
-
     <!-- Librerías JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
@@ -360,43 +351,12 @@
 	<script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
 
 
-
-	
-
-	
-	
-	
-
-
-	
-
 	<!--  imprimir -->
 	<!-- Librería necesaria para easyPrint -->
-	
-
-	
-	
-
 
     <script>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
       // Inicializa el mapa centrado en Cádiz
       var map = L.map('map').setView([36.52136, -6.29070], 14);
 	  
@@ -418,15 +378,15 @@
 		
 		var evacuacio_3 = L.tileLayer.wms('http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?', {
 		  layers: '	ruta_evacuacion_3',
-		  styles: 'rutas_evacuacion_9_estilo',
+		  styles: 'rutas_evacuacion_3_estilo',
 		  format: 'image/png',
 		  transparent: true,
 		  attribution: 'Arnau Solà'
-		}).addTo(map);
+		});
 		
 		var evacuacio_6 = L.tileLayer.wms('http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?', {
 		  layers: '	rutas_evacuacion_6',
-		  styles: 'rutas_evacuacion_9_estilo',
+		  styles: 'rutas_evacuacion_6_estilo',
 		  format: 'image/png',
 		  transparent: true,
 		  attribution: 'Arnau Solà'
@@ -462,24 +422,35 @@
 		  attribution: 'Arnau Solà'
 		});
 		
-		var profunidad_6 = L.tileLayer.wms('http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?', {
-		  layers: '	6metros_profundidad',
-		  styles: '		6m_profunidad',
+		
+		
+		
+		var profunidad_3 = L.tileLayer.wms('http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?', {
+		  layers: '	3metros_profundidad',
+		  styles: '	styles_3_profunidad',
 		  format: 'image/png',
 		  transparent: true,
 		  attribution: 'Arnau Solà'
 		});
+		
+		
+		
+		var profunidad_6 = L.tileLayer.wms('http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?', {
+		  layers: '	6metros_profundidad',
+		  styles: 'styles_6_profundidad',
+		  format: 'image/png',
+		  transparent: true,
+		  attribution: 'Arnau Solà'
+		});
+		
 		
 		var profunidad_9 = L.tileLayer.wms('http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?', {
 		  layers: '	9metros_profunidad',
-		  styles: '	9m_profunidad',
+		  styles: '	styles_9_profundidad',
 		  format: 'image/png',
 		  transparent: true,
 		  attribution: 'Arnau Solà'
 		});
-		
-		
-		
 		
 		
 		var inundacio_3 = L.tileLayer.betterWms('http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?', {
@@ -487,7 +458,7 @@
 		  styles: 'estilo_3_metros',
 		  format: 'image/png',
 		  transparent: true,
-		  crs:L.CRS.EPSG25829
+		  attribution: 'Arnau Solà'
 		}).addTo(map);
 	  
 	  
@@ -499,9 +470,9 @@
         attribution: 'Arnau Solà'
       });
 	  
-	  var inundacio_9 = L.tileLayer.betterWms('http://localhost:8080/geoserver/TFG_ARNAU_SOLA/wms?', {
+	  var inundacio_9 = L.tileLayer.betterWms('http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?', {
         layers: '9metros_inundacion',
-		
+		styles: 'estilo_9_metros',
         format: 'image/png',
         transparent: true,
         attribution: 'Arnau Solà'
@@ -533,11 +504,28 @@
 	  
 	   var puntos = L.tileLayer.wms('http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?', {
         layers: 'puntos2',
-		styles: 'estiloo_puntos',
+		styles: 'estiloo',
         format: 'image/png',
         transparent: true,
         attribution: 'Arnau Solà'
-      }).addTo(map);
+      });
+	  
+	  var señales = L.tileLayer.wms('http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?', {
+        layers: 'señales',
+        format: 'image/png',
+		styles: 'señalizacion_estilo',
+        transparent: true,
+        attribution: 'Arnau Solà'
+      });
+	  
+	  var señales_buffer = L.tileLayer.wms('http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?', {
+        layers: 'buffer',
+        format: 'image/png',
+		styles: 'buffer_señalizacion_estilo',
+        transparent: true,
+        attribution: 'Arnau Solà'
+      });
+	  
 	  
 	  
 	  
@@ -549,7 +537,7 @@
         format: 'image/jpeg',
         transparent: false,
         attribution: 'Instituto Geográfico Nacional (IGN)'
-      });
+      }).addTo(map);
 
       // Mapa base IGN
       var base = L.tileLayer.wms('https://www.ign.es/wms-inspire/ign-base?', {
@@ -557,7 +545,7 @@
         format: 'image/jpeg',
         transparent: false,
         attribution: 'Instituto Geográfico Nacional (IGN)'
-      }).addTo(map);
+      })
 
       // Añadir capas iniciales
       osmLayer.addTo(map);
@@ -585,15 +573,76 @@
 				"Escenario 3 (9 m): Escenario crítico de tsunami severo. Con una altura de ola de 11 metros, y un RunUp de 8.45 (redondeado a 9), tendria una probabilidad de ocurrencia cada 200 años del 1.98%. El 18.38 % de los edificios se verían totalmente inundados.";
 		  } 
 		  }); 
-		
+		  
+		document.getElementById("selector-leyenda").addEventListener("change", function () {
+		  const valor = this.value;
+		  const explicacion = document.getElementById("explicacion-leyenda");
+
+		  if (valor === "3m") {
+			explicacion.innerHTML = `
+			  <p>Representación visual de la capa de inundación.</p>
+			  <img src="http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=40&HEIGHT=40&LAYER=3metros_inundacion&STYLE=estilo_3_metros"
+				   alt="Leyenda inundación 3m"
+				   style=" max-width: 100%; height: auto;" />
+			  <p>Altura de inundación.</p>
+			  <img src="http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=40&HEIGHT=40&LAYER=3metros_profundidad&STYLE=styles_3_profunidad"
+				   alt="Leyenda inundación 3m"
+				   style= "max-width: 100%; height: auto;" />
+			  <p>Altura de los edificios inundados.</p>
+			  <img src="http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=40&HEIGHT=40&LAYER=3_metros_operatividad&STYLE=3_metros_operatividad_estilo"
+				   alt="Leyenda inundación 3m"
+				   style= "max-width: 100%; height: auto;" />
+			`;
+		  } else if (valor === "6m") {
+			explicacion.innerHTML = `
+			 <p>Representación visual de la capa de inundación.</p>
+			  <img src="http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=6metros_inundacion&STYLE=estilo_6_metros"
+				   alt="Leyenda inundación 6m"
+				   style=" max-width: 100%; height: auto;" />
+			<p>Altura de inundación.</p>
+			  <img src="http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=40&HEIGHT=40&LAYER=6metros_profundidad&STYLE=styles_6_profundidad"
+				   alt="Leyenda inundación 3m"
+				   style= "max-width: 100%; height: auto;" />
+		   <p>Altura de los edificios inundados.</p>
+			  <img src="http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=40&HEIGHT=40&LAYER=6_metros_operatividad&STYLE=6_metros_operatividad_estilo"
+				   alt="Leyenda inundación 3m"
+				   style= "max-width: 100%; height: auto;" />
+			`;
+		  } else if (valor === "9m") {
+			explicacion.innerHTML = `
+			  <p>Representación visual de la capa de inundación.</p>
+			  <img src="http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=40&HEIGHT=40&LAYER=9metros_inundacion&STYLE=estilo_9_metros"
+				   alt="Leyenda inundación 9m"
+				   style=" max-width: 100%; height: auto;" />
+			  <p>Altura de inundación.</p>
+			  <img src="http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=40&HEIGHT=40&LAYER=9metros_profunidad&STYLE=styles_9_profundidad"
+				   alt="Leyenda inundación 3m"
+				   style= "max-width: 100%; height: auto;" />
+		   <p>Altura de los edificios inundados.</p>
+			<img src="http://localhost:8080/geoserver/TFG_Arnau_Sola/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=40&HEIGHT=40&LAYER=9_metros_operatividad&STYLE=9_metros_operatividad_estilo"
+				   alt="Leyenda inundación 3m"
+				   style= "max-width: 100%; height: auto;" />
+			
+			`;
+		  } else {
+			// Limpia el contenido si no se selecciona nada
+			explicacion.innerHTML = "";
+		  }
+		});
+
 	  
 	  var groupedOverlays = {
+			"General": {
+		    "Puntos encuentros": puntos,
+			"Señales" : señales,
+			"Señales Distancia": señales_buffer
+		  },
 		  "Escenario 1 (3 metros)": {
 		    "Inundación 3m": inundacio_3,
 			"Ruta 3m": evacuacio_3,
 			"RojoVerde 3m":rojoverde_3,
 			"Operatividad 3m":operatividad_3,
-			"puntos": puntos
+			"Profundiad 3": profunidad_3
 		  },
 		  "Escenario 2 (6 metros)": {
 		    "Inundación 6m": inundacio_6,
@@ -690,10 +739,17 @@
 		<div id="popupContent" style="text-align: center;">
         <img src="https://www.cadizturismo.com/storage/app/media/uploaded-files/p-cadiz_turismo.jpg" alt="Centro ciudad" style="width:230px;">
 		<p><em>La tacita de plata</em></p>
+		
+		<iframe width="300" height="315" src="https://www.youtube.com/embed/iAhwrDLPJok?si=5WKRHOlM3iyDynIQ" 
+		title="YouTube video player" 
+		frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+		referrerpolicy="strict-origin-when-cross-origin" 
+		allowfullscreen></iframe>
+		
 		</div>`;
 
       var bienvenidaPopup = L.popup()
-        .setLatLng([36.52136, -6.29070])
+        .setLatLng([36.5000, -6.29070])
         .setContent(popupContent)
         .openOn(map);
 		
