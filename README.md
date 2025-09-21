@@ -24,13 +24,13 @@ En este caso, se ha seleccionado GeoServer 🌐 para la creación de un servicio
 
 5.-📑 Sidebar:
 
-5.1. ℹ️ Introducción al visor, con breve explicación del TFG y enlace al depósito.
-
-5.2. 🗺️ Explicación del visor y de las capas disponibles.
-
-5.3. 📂 Mapas en formato PDF (almacenados en Imgur, servicio gratuito de almacenamiento de imágenes).
-
-5.4. 🎨 Leyendas de las diferentes capas presentes en el visor.
+     5.1. ℹ️ Introducción al visor, con breve explicación del TFG y enlace al depósito.
+     
+     5.2. 🗺️ Explicación del visor y de las capas disponibles.
+     
+     5.3. 📂 Mapas en formato PDF (almacenados en Imgur, servicio gratuito de almacenamiento de imágenes).
+     
+     5.4. 🎨 Leyendas de las diferentes capas presentes en el visor.
 
 6.- ✏️ Dibujar polígonos.
 
