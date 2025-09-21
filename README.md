@@ -1,31 +1,26 @@
-Visor Cádiz Tsunami TFG:
+Visor Cádiz TFG:
 
-Este repositori de GitHub tiene la intención de almacenar el visor para poder visualizarlo desde internet, ya que es uno de los principales objetivos del TFG. 
-Tiene también una carpeta JS (plugin del visor), ya que la gran mayoria no se han importado desde local, sino desde internet. Para más información sobre el trabajo adjunto link del repositorio de TFGs de la UPC: https://upcommons.upc.edu/collections/aaac85de-38cc-4029-aa35-b05262d6e530/search
-
-
-🌊 Visor Web de Inundación por Tsunami – TFG
-
-Este repositorio contiene el visor web interactivo desarrollado en el marco de mi Trabajo Final de Grado (TFG) en la EPSEB – Universitat Politècnica de Catalunya (UPC).
-
-El visor permite explorar escenarios de inundación por tsunami en la ciudad de Cádiz y simular la afectación de distintos niveles de agua sobre el territorio.
-
-✨ Funcionalidades principales
-
-Carga de capas base (OpenStreetMap, IGN).
-Visualización de capas WMS publicadas en GeoServer.
-Control de capas y leyenda.
-Escala gráfica y vista en pantalla completa.
-Geocodificación de direcciones.
-Popup de bienvenida con explicación del proyecto.
+Para poder visualizar los resultados se ha optado por un visor que nos permita un acceso al mapa a través de la web. La evolución tecnológica del mapa ha creado el visor geográfico, un mapa interactivo con el que los usuarios pueden interactuar mediante un dispositivo como un móvil, ordenador o parecido. Este tiene varias ventajas, como la actualización constante, la gran capacidad de almacenamiento y visualización o el establecimiento de datos estadísticos u otros tipos. Un visor puede tener enlaces a otros sitios de internet, aumentar o disminuir la escala del mapa, cambiar de capa a petición del usuario y un largo etcétera. Estos visores muestran los servicios creados previamente siguiendo los estándares para realizar peticiones, y así dar respuestas a las peticiones del cliente.
+En este caso se ha seleccionado Geoserver para la creación de un servicio WMS para tener acceso a la información geográfica, y el software libre Leaflet para el desarrollo del visor.
 
 
-🛠️ Tecnologías utilizadas
+<img width="996" height="506" alt="image" src="https://github.com/user-attachments/assets/c4b5c4b4-19f3-410d-8366-4b551ad4e9fc" />
 
-Leaflet.js como librería principal de mapas.
-GeoServer para la publicación de servicios WMS.
-HTML, CSS y JavaScript para la interfaz y la lógica del visor.
 
-🎯 Objetivo del proyecto
-
-El objetivo del TFG es analizar el riesgo de inundación por tsunami en Cádiz y evaluar rutas de evacuación mediante el uso de SIG, IDE y visores web. El visor facilita la comunicación de los resultados, permitiendo a cualquier usuario explorar los escenarios modelizados de forma sencilla e interactiva.
+1.- PopUp de Bienvenida (foto más vídeo de la ciudad de Cádiz)
+2.-Título
+3.-Zoom In y Zoom out, para poder ampliar o disminuir la escala del visor.
+4.-Pantalla Completa, permite al usuario expandir el mapa para ocupar toda la ventana del navegador, ocultando otros elementos de la interfaz. Esto es especialmente útil cuando se quiere aprovechar al máximo el espacio disponible para visualizar el mapa, sin distracciones ni limitaciones de tamaño.
+5.-Sidebar
+5.1.-Introducción al visor, con una breve explicación del TFG y un link al depósito de estos.
+5.2.-Explicación del visor y que capas se pueden encontrar
+5.3.-Mapas en formato PDF, guardados en un servidor gratuito. Este es Imgur, un servicio gratuito de almacenamiento de fotografías en formato JPEG.
+5.4.-Leyendas de las diferentes capas presentes en el visor.
+6.- Dibujar polígonos
+7.-Escala gráfica dinámica en función del zoom
+8.-Coordenadas del cursor
+9.-Mapa de vista general (mapa mosca)
+Herramientas geomáticas para la gestión de riesgo de tsunami en la costa de Cádiz
+41
+10.-Búsqueda por localización geográfica, donde insertando una dirección o lugar realiza la búsqueda mediante un servicio de geocodificación.
+11.-Capas
