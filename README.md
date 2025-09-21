@@ -12,17 +12,17 @@ En este caso, se ha seleccionado GeoServer 🌐 para la creación de un servicio
 
 <img width="996" height="506" alt="image" src="https://github.com/user-attachments/assets/c4b5c4b4-19f3-410d-8366-4b551ad4e9fc" />
 
-📌 Funcionalidades del visor:
+ 📌 Funcionalidades del visor:
 
-📢 PopUp de bienvenida: foto y vídeo de la ciudad de Cádiz.
+1.- 📢 PopUp de bienvenida: foto y vídeo de la ciudad de Cádiz.
 
-🏷️ Título.
+2.- 🏷️ Título.
 
-🔍 Zoom In / Zoom Out: ampliar o disminuir la escala del visor.
+3.- 🔍 Zoom In / Zoom Out: ampliar o disminuir la escala del visor.
 
-🖥️ Pantalla completa: permite expandir el mapa para ocupar toda la ventana del navegador, ocultando otros elementos de la interfaz.
+4.- 🖥️ Pantalla completa: permite expandir el mapa para ocupar toda la ventana del navegador, ocultando otros elementos de la interfaz.
 
-📑 Sidebar:
+5.-📑 Sidebar:
 
 5.1. ℹ️ Introducción al visor, con breve explicación del TFG y enlace al depósito.
 
@@ -32,14 +32,14 @@ En este caso, se ha seleccionado GeoServer 🌐 para la creación de un servicio
 
 5.4. 🎨 Leyendas de las diferentes capas presentes en el visor.
 
-✏️ Dibujar polígonos.
+6.- ✏️ Dibujar polígonos.
 
-📏 Escala gráfica dinámica, en función del zoom.
+7.- 📏 Escala gráfica dinámica, en función del zoom.
 
-📍 Coordenadas del cursor.
+8.- 📍 Coordenadas del cursor.
 
-🗺️ Mapa de vista general (mapa mosca).
+9.- 🗺️ Mapa de vista general (mapa mosca).
 
-📌 Búsqueda por localización geográfica: introduciendo dirección o lugar, se realiza la búsqueda mediante un servicio de geocodificación.
+10.- 📌 Búsqueda por localización geográfica: introduciendo dirección o lugar, se realiza la búsqueda mediante un servicio de geocodificación.
 
-🗂️ Capas.
+11.- 🗂️ Capas.
